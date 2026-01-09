@@ -1,31 +1,51 @@
 # Omnifact Chat Widget
 
-An embeddable AI chat widget for integrating Omnifact AI assistants onto any website. Built with Web Components for maximum compatibility and zero dependencies.
+An embeddable AI chat widget for integrating Omnifact AI assistants onto any website. Built with Web Components and TypeScript for maximum compatibility and type safety.
 
 ## Features
 
-- **Streaming Responses** - See AI responses appear in real-time
+- **Streaming Responses** - See AI responses appear in real-time via SSE
 - **Conversation Persistence** - Chat history saved to localStorage
 - **Markdown Rendering** - Support for bold, italic, code, lists, and more
+- **Inline Citations** - Source references with clickable citations
 - **Customizable Theme** - Match colors to your brand
 - **Floating Bubble UI** - Non-intrusive chat bubble that expands on click
 - **Mobile Responsive** - Works on all screen sizes
-- **Zero Dependencies** - Pure JavaScript, no external libraries
+- **TypeScript** - Full type definitions included
+- **Zero Dependencies** - No external runtime libraries
 
 ## Installation
 
-### Script Tag (Recommended)
+### CDN (Recommended)
 
-Download the widget and include it in your HTML:
+Use unpkg or jsDelivr to load directly from npm:
 
 ```html
-<script src="omnifact-widget.min.js"></script>
+<script src="https://unpkg.com/omnifact-widget"></script>
 ```
 
-### npm (Coming Soon)
+Or with a specific version:
+
+```html
+<script src="https://unpkg.com/omnifact-widget@1.0.0"></script>
+```
+
+### npm
 
 ```bash
 npm install omnifact-widget
+```
+
+Then import in your code:
+
+```javascript
+import 'omnifact-widget';
+```
+
+Or for programmatic use:
+
+```javascript
+import { OmnifactChatWidget, ApiClient } from 'omnifact-widget';
 ```
 
 ## Quick Start
@@ -38,7 +58,7 @@ Add the widget to your page with your Omnifact endpoint credentials:
   endpoint-id="YOUR_ENDPOINT_ID"
 ></omnifact-chat-widget>
 
-<script src="omnifact-widget.min.js"></script>
+<script src="https://unpkg.com/omnifact-widget"></script>
 ```
 
 ## Configuration
@@ -55,9 +75,7 @@ The widget can be configured via HTML attributes or JSON. Attributes take preced
   title="Chat Support"
   welcome-message="Hello! How can I help you?"
   primary-color="#6366f1"
-  secondary-color="#818cf8"
-  background-color="#ffffff"
-  text-color="#1f2937"
+  enable-inline-sources="true"
 ></omnifact-chat-widget>
 ```
 
@@ -71,7 +89,8 @@ The widget can be configured via HTML attributes or JSON. Attributes take preced
       "endpoint-id": "ep_12345",
       "title": "Chat Support",
       "welcome-message": "Hello! How can I help you?",
-      "primary-color": "#6366f1"
+      "primary-color": "#6366f1",
+      "enable-inline-sources": true
     }
   </script>
 </omnifact-chat-widget>
@@ -100,7 +119,7 @@ You can use both JSON and attributes together. Attributes override JSON values:
 |--------|------|---------|-------------|
 | `endpoint-url` | string | (required) | Base URL for the Omnifact API |
 | `endpoint-id` | string | (required) | Your chat endpoint ID |
-| `api-key` | string | (optional) | API key (if required by your endpoint) |
+| `api-key` | string | — | API key (if required by your endpoint) |
 | `position` | string | `bottom-right` | Widget position: `bottom-right` or `bottom-left` |
 | `title` | string | `Chat with us` | Title shown in the chat window header |
 | `welcome-message` | string | `Hello! How can I help you today?` | Initial message from the assistant |
@@ -110,6 +129,9 @@ You can use both JSON and attributes together. Attributes override JSON values:
 | `text-color` | string | `#1f2937` | Text color |
 | `storage-key` | string | `omnifact-chat` | localStorage key for persistence |
 | `enable-persistence` | boolean | `true` | Enable/disable conversation persistence |
+| `enable-inline-sources` | boolean | `false` | Enable inline source citations in responses |
+| `enable-agentic-workflow` | boolean | `false` | Enable agentic workflow mode |
+| `debug` | boolean | `false` | Log SSE events to console for debugging |
 
 ## JavaScript API
 
@@ -182,6 +204,8 @@ The widget uses native Web Components (Custom Elements v1) which are supported i
 ### Building from Source
 
 ```bash
+# Clone the repository
+git clone https://github.com/OmnifactAI/omnifact-widget.git
 cd omnifact-widget
 
 # Install dependencies
@@ -217,6 +241,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Links
 
-- [Omnifact Documentation](https://connect.omnifact.ai/docs)
-- [GitHub Repository](https://github.com/omnifact/omnifact-widget)
-- [Report Issues](https://github.com/omnifact/omnifact-widget/issues)
+- [Omnifact](https://omnifact.ai)
+- [GitHub Repository](https://github.com/OmnifactAI/omnifact-widget)
+- [Report Issues](https://github.com/OmnifactAI/omnifact-widget/issues)
