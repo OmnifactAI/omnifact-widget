@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
 
-# Build output (optional - uncomment to exclude dist from repo)
-# dist/
+# Build output
+dist/
 
 # IDE
 .idea/
