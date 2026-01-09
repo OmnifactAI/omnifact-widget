@@ -1,0 +1,42 @@
+{
+  "name": "omnifact-widget",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Embeddable AI chat widget for Omnifact endpoints",
+  "main": "dist/omnifact-widget.umd.js",
+  "module": "dist/omnifact-widget.esm.js",
+  "browser": "dist/omnifact-widget.min.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "omnifact",
+    "chat",
+    "widget",
+    "ai",
+    "web-component",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "rollup": "^4.0.0",
+    "tslib": "^2.6.0",
+    "typescript": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omnifact/omnifact-widget.git"
+  }
+}

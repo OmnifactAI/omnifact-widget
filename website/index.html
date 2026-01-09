@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnifact Chat Widget - Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Omnifact Chat Widget</h1>
+      <p class="subtitle">Embed AI-powered chat assistants on any website</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Try It Out</h2>
+      <p>Click the chat bubble in the bottom-right corner to start chatting with the AI assistant.</p>
+    </section>
+
+    <section class="features">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Streaming Responses</h3>
+          <p>See AI responses appear in real-time as they're generated.</p>
+        </div>
+        <div class="feature">
+          <h3>Conversation Memory</h3>
+          <p>Chat history is preserved across page reloads using localStorage.</p>
+        </div>
+        <div class="feature">
+          <h3>Markdown Support</h3>
+          <p>Responses support bold, italic, code blocks, lists, and more.</p>
+        </div>
+        <div class="feature">
+          <h3>Customizable Theme</h3>
+          <p>Match the widget colors to your brand identity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="config-demo">
+      <h2>Live Configuration</h2>
+      <p>Try changing the widget settings below:</p>
+
+      <div class="config-panel">
+        <div class="config-group">
+          <label for="primary-color">Primary Color:</label>
+          <input type="color" id="primary-color" value="#6366f1">
+        </div>
+
+        <div class="config-group">
+          <label for="position">Position:</label>
+          <select id="position">
+            <option value="bottom-right">Bottom Right</option>
+            <option value="bottom-left">Bottom Left</option>
+          </select>
+        </div>
+
+        <button type="button" onclick="updateWidget()">Apply Changes</button>
+      </div>
+    </section>
+
+    <section class="examples">
+      <h2>More Examples</h2>
+      <ul>
+        <li><a href="examples/basic.html">Basic Configuration</a> - Minimal setup with required attributes</li>
+        <li><a href="examples/custom-theme.html">Custom Theme</a> - Styled widget for a dark-themed site</li>
+        <li><a href="examples/json-config.html">JSON Configuration</a> - Using embedded JSON for configuration</li>
+      </ul>
+    </section>
+
+    <section class="installation">
+      <h2>Quick Start</h2>
+      <pre><code>&lt;!-- Add the widget script --&gt;
+&lt;script src="omnifact-widget.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Add the widget element --&gt;
+&lt;omnifact-chat-widget
+  endpoint-url="https://connect.omnifact.ai"
+  endpoint-id="YOUR_ENDPOINT_ID"
+&gt;&lt;/omnifact-chat-widget&gt;</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>MIT License | <a href="https://github.com/omnifact/omnifact-widget">GitHub</a></p>
+    </div>
+  </footer>
+
+  <!-- Chat Widget -->
+  <omnifact-chat-widget id="demo-widget">
+    <script type="application/json">
+      {
+        "endpoint-url": "https://connect.omnifact.ai",
+        "endpoint-id": "YOUR ENDPOINT ID",
+        "title": "Omnifact Assistant",
+        "welcome-message": "Hello! I'm the Omnifact AI assistant. How can I help you today?\n\nYou can ask me questions about:\n- **Features** of this widget\n- **Integration** into your website\n- **Customization** options",
+        "enable-inline-sources": true,
+        "enable-agentic-workflow": true,
+        "debug": true
+      }
+    </script>
+  </omnifact-chat-widget>
+
+  <!-- Load widget script (development version) -->
+  <script src="../dist/omnifact-widget.js"></script>
+
+  <script>
+    function updateWidget() {
+      const widget = document.getElementById('demo-widget');
+      const primaryColor = document.getElementById('primary-color').value;
+      const position = document.getElementById('position').value;
+
+      widget.setAttribute('primary-color', primaryColor);
+      widget.setAttribute('position', position);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Configuration - Omnifact Widget</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    h1 { margin-bottom: 20px; }
+    h2 { margin-top: 30px; margin-bottom: 15px; }
+    p { color: #4b5563; margin-bottom: 20px; }
+    pre {
+      background: #1f2937;
+      color: #f3f4f6;
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    code { font-family: 'Fira Code', Consolas, monospace; }
+    a { color: #6366f1; }
+    .note {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .note p { color: #92400e; margin: 0; }
+  </style>
+</head>
+<body>
+  <h1>JSON Configuration Example</h1>
+  <p>This example shows how to configure the widget using an embedded JSON script tag. This is useful when you have many configuration options or want to keep your HTML cleaner.</p>
+
+  <div class="note">
+    <p><strong>Note:</strong> HTML attributes take precedence over JSON configuration. You can use both together to set defaults in JSON and override specific values with attributes.</p>
+  </div>
+
+  <h2>Code</h2>
+  <pre><code>&lt;omnifact-chat-widget&gt;
+  &lt;script type="application/json"&gt;
+    {
+      "endpoint-url": "https://connect.omnifact.ai",
+      "endpoint-id": "YOUR_ENDPOINT_ID",
+      "title": "Help Center",
+      "welcome-message": "Welcome! I'm here to help.",
+      "primary-color": "#10b981",
+      "position": "bottom-right"
+    }
+  &lt;/script&gt;
+&lt;/omnifact-chat-widget&gt;</code></pre>
+
+  <h2>Mixed Configuration</h2>
+  <p>You can combine JSON and attributes. Attributes will override JSON values:</p>
+  <pre><code>&lt;!-- primary-color will be #ef4444 (from attribute) --&gt;
+&lt;omnifact-chat-widget primary-color="#ef4444"&gt;
+  &lt;script type="application/json"&gt;
+    {
+      "endpoint-url": "https://connect.omnifact.ai",
+      "endpoint-id": "YOUR_ENDPOINT_ID",
+      "primary-color": "#10b981"
+    }
+  &lt;/script&gt;
+&lt;/omnifact-chat-widget&gt;</code></pre>
+
+  <p><a href="../index.html">&larr; Back to Demo</a></p>
+
+  <!-- Widget with JSON configuration -->
+  <omnifact-chat-widget>
+    <script type="application/json">
+      {
+        "endpoint-url": "https://connect.omnifact.ai",
+        "endpoint-id": "YOUR_ENDPOINT_ID",
+        "title": "Help Center",
+        "welcome-message": "Welcome to our Help Center! I can assist you with:\n\n- Product information\n- Technical support\n- Account questions\n\nHow can I help you today?",
+        "primary-color": "#10b981",
+        "position": "bottom-right"
+      }
+    </script>
+  </omnifact-chat-widget>
+
+  <script src="../../dist/omnifact-widget.js"></script>
+</body>
+</html>
