@@ -1,5 +1,7 @@
 # Omnifact Chat Widget
 
+> **Disclaimer:** This project is provided as a demo as-is. We do not provide technical support for this code, nor can we guarantee that it is bug-free or up to date.
+
 An embeddable AI chat widget for integrating Omnifact AI assistants onto any website. Built with Web Components and TypeScript for maximum compatibility and type safety.
 
 ## Features
@@ -119,7 +121,6 @@ You can use both JSON and attributes together. Attributes override JSON values:
 |--------|------|---------|-------------|
 | `endpoint-url` | string | (required) | Base URL for the Omnifact API |
 | `endpoint-id` | string | (required) | Your chat endpoint ID |
-| `api-key` | string | — | API key (if required by your endpoint) |
 | `position` | string | `bottom-right` | Widget position: `bottom-right` or `bottom-left` |
 | `title` | string | `Chat with us` | Title shown in the chat window header |
 | `welcome-message` | string | `Hello! How can I help you today?` | Initial message from the assistant |
@@ -226,14 +227,6 @@ npm run dev
 | `omnifact-widget.min.js` | IIFE (minified) | Production |
 | `omnifact-widget.esm.js` | ES Module | Modern bundlers |
 | `omnifact-widget.umd.js` | UMD | Universal compatibility |
-
-## Security Note
-
-If you use an API key, it will be exposed in the browser. For production deployments with API keys, consider:
-
-1. Using a server-side proxy that adds the API key
-2. Implementing rate limiting
-3. Using domain restrictions on your API key
 
 ## License
 
