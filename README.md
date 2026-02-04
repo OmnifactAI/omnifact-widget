@@ -2,7 +2,7 @@
 
 > **Disclaimer:** This project is provided as a demo as-is. We do not provide technical support for this code, nor can we guarantee that it is bug-free or up to date.
 
-An embeddable AI chat widget for integrating Omnifact AI assistants onto any website. Built with Web Components and TypeScript for maximum compatibility and type safety.
+An embeddable AI chat widget for integrating Omnifact AI assistants onto any website. Built with Web Components and TypeScript for maximum compatibility and type safety. See the [Omnifact API Spec](https://connect.omnifact.ai/docs) for endpoint details.
 
 ## Features
 
