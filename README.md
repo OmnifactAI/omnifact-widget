@@ -132,6 +132,7 @@ You can use both JSON and attributes together. Attributes override JSON values:
 | `enable-persistence` | boolean | `true` | Enable/disable conversation persistence |
 | `enable-inline-sources` | boolean | `false` | Enable inline source citations in responses |
 | `enable-agentic-workflow` | boolean | `false` | Enable agentic workflow mode |
+| `hide-sources` | boolean | `false` | Hide inline citations and the sources list from responses |
 | `debug` | boolean | `false` | Log SSE events to console for debugging |
 
 ## JavaScript API

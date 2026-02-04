@@ -9,6 +9,7 @@ export class MessageItem extends HTMLElement {
   private _content = '';
   private _references: LegacyReferences | null = null;
   private _sources: InlineSource[] | null = null;
+  private _hideSources = false;
   private _markdownRenderer = new MarkdownRenderer();
 
   constructor() {
@@ -99,6 +100,19 @@ export class MessageItem extends HTMLElement {
   }
 
   /**
+   * Set whether to hide sources (inline citations and sources list).
+   */
+  set hideSources(value: boolean) {
+    this._hideSources = value;
+    this._updateContent();
+    this._updateReferences();
+  }
+
+  get hideSources(): boolean {
+    return this._hideSources;
+  }
+
+  /**
    * Set theme colors.
    */
   setTheme(config: ThemeConfig): void {
@@ -113,9 +127,9 @@ export class MessageItem extends HTMLElement {
     if (!this.shadowRoot) return;
     const contentEl = this.shadowRoot.querySelector('.content');
     if (contentEl) {
-      // First render markdown, then process citations
+      // First render markdown, then process citations (unless sources are hidden)
       let renderedContent = this._markdownRenderer.render(this._content);
-      if (this._sources && this._sources.length > 0) {
+      if (!this._hideSources && this._sources && this._sources.length > 0) {
         renderedContent = this._processCitations(renderedContent);
       }
       contentEl.innerHTML = renderedContent;
@@ -154,6 +168,12 @@ export class MessageItem extends HTMLElement {
     }
 
     let refsEl = this.shadowRoot.querySelector('.references');
+
+    // If sources are hidden, clear any existing references element and return
+    if (this._hideSources) {
+      if (refsEl) refsEl.innerHTML = '';
+      return;
+    }
 
     // Create references element if it doesn't exist
     if (!refsEl) {

@@ -23,6 +23,7 @@ export class ConfigManager {
     enablePersistence: true,
     enableInlineSources: false,
     enableAgenticWorkflow: false,
+    hideSources: false,
     debug: false
   };
 
@@ -41,6 +42,7 @@ export class ConfigManager {
     'enable-persistence': 'enablePersistence',
     'enable-inline-sources': 'enableInlineSources',
     'enable-agentic-workflow': 'enableAgenticWorkflow',
+    'hide-sources': 'hideSources',
     'debug': 'debug'
   };
 
@@ -48,6 +50,7 @@ export class ConfigManager {
     'enablePersistence',
     'enableInlineSources',
     'enableAgenticWorkflow',
+    'hideSources',
     'debug'
   ];
 

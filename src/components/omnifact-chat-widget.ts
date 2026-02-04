@@ -60,6 +60,7 @@ export class OmnifactChatWidget extends HTMLElement {
       'text-color',
       'enable-inline-sources',
       'enable-agentic-workflow',
+      'hide-sources',
       'debug'
     ];
   }
@@ -331,6 +332,10 @@ export class OmnifactChatWidget extends HTMLElement {
 
     // Set content and references after a microtask to ensure element is fully initialized
     Promise.resolve().then(() => {
+      // Set hideSources flag first
+      if (this._config?.hideSources) {
+        messageEl.hideSources = true;
+      }
       // Set sources first so citations are processed correctly
       if (msg.sources) {
         messageEl.sources = msg.sources;
@@ -399,6 +404,11 @@ export class OmnifactChatWidget extends HTMLElement {
 
       // Render streaming message
       const messageEl = this._renderMessage(assistantMessage, true);
+
+      // Set hideSources immediately for streaming messages
+      if (messageEl && this._config?.hideSources) {
+        messageEl.hideSources = true;
+      }
 
       // Track if we should auto-scroll
       const shouldScroll = true;

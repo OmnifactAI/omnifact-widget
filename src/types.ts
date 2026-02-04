@@ -16,6 +16,7 @@ export interface WidgetConfig {
   enablePersistence: boolean;
   enableInlineSources: boolean;
   enableAgenticWorkflow: boolean;
+  hideSources: boolean;
   debug: boolean;
 }
 
