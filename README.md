@@ -235,5 +235,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Links
 
 - [Omnifact](https://omnifact.ai)
+- [Omnifact API Spec](https://connect.omnifact.ai/docs)
 - [GitHub Repository](https://github.com/OmnifactAI/omnifact-widget)
 - [Report Issues](https://github.com/OmnifactAI/omnifact-widget/issues)
