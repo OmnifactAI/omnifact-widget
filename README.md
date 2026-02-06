@@ -16,40 +16,6 @@ An embeddable AI chat widget for integrating Omnifact AI assistants onto any web
 - **TypeScript** - Full type definitions included
 - **Zero Dependencies** - No external runtime libraries
 
-## Installation
-
-### CDN (Recommended)
-
-Use unpkg or jsDelivr to load directly from npm:
-
-```html
-<script src="https://unpkg.com/omnifact-widget"></script>
-```
-
-Or with a specific version:
-
-```html
-<script src="https://unpkg.com/omnifact-widget@1.0.0"></script>
-```
-
-### npm
-
-```bash
-npm install omnifact-widget
-```
-
-Then import in your code:
-
-```javascript
-import 'omnifact-widget';
-```
-
-Or for programmatic use:
-
-```javascript
-import { OmnifactChatWidget, ApiClient } from 'omnifact-widget';
-```
-
 ## Quick Start
 
 Add the widget to your page with your Omnifact endpoint credentials:
@@ -60,7 +26,7 @@ Add the widget to your page with your Omnifact endpoint credentials:
   endpoint-id="YOUR_ENDPOINT_ID"
 ></omnifact-chat-widget>
 
-<script src="https://unpkg.com/omnifact-widget"></script>
+<script src="path/to/omnifact-widget.min.js"></script>
 ```
 
 ## Configuration
